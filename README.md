@@ -1,4 +1,7 @@
-# Code dataclient,dataserver is a client-server program which transfers a double array from client to server
-fileclient,fileserver is a client-server program which transfers a character file from client to server 
-arrayclient.sh is a script to run the dataclient and arrayserver.sh is a script to run dataserver
-simlarly client.sh ,server.sh are scripts to run fileclient,fileserver
+The code is a simple client-server code in C programming. 
+dataclient.c is client code which sends an array of size n, t times over to dataserver.c, the two programs run on two different machines or more than two machines.
+While the sending is in progress netperf tool is used to measure different parameters of the two machines like throughput of the channel and the latency.
+
+The figures included show results gotten from two machines with maximum throughput of 110 MB.
+
+To run the dataclient.c, dataserver.c bash arrayclient.sh and arrayserver.sh
