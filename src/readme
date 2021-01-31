@@ -1,1 +1,4 @@
-dataclient.c an
+Source C code of the client and server program
+For compilation use the below 
+$ gcc dataclient.c -o dataclient
+$ gcc dataserver.c -o dataserver
