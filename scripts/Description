@@ -1,1 +1,16 @@
 The two bash scripts are for execution of the client and server programs.
+The arrayclient.sh is to run the client program with three parameters passed 
+1. IP address of the server program 
+2. Size of the array which will be sent from client program to server program
+3. Number of times the array will be sent.
+
+The arrayserver.sh is to execute the server program with no parameters.
+
+The client program was run on one machine and the server program was run on another machine. Programs were tested on four nodes(csews10,csews11,csews29,csews30).
+Two tools(iperf,netperf) were used to measure the bandwidth of the channel between two nodes while the client-server programs were executing on the two nodes.
+The data which was used to create the plots was deducted from more than 10 runs for each data size. 
+The data entries present in the data files are the average of 10 runs(minimum) for each data size.This was done to avoid the varation recorded by the two tools netperf,netperf.
+There was a varation of 0-2MB between executions for the same data size.
+
+Another measurement for bandwith was done wile sending data from multiple clients to one server. The same process was applied to this one also as described above.
+
