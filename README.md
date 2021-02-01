@@ -4,4 +4,4 @@ While the sending the data, netperf and iperf tools are used to measure differen
 
 The plots included show results gotten from  machines with maximum throughput of 110 MB/s.
 
-To run the dataclient.c, dataserver.c bash arrayclient.sh and arrayserver.sh
+To run the dataclient.c, dataserver.c bash  csewsxxclient.sh and server.sh
