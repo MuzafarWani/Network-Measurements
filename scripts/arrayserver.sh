@@ -1,3 +1,3 @@
 #!bin/bash
 #clientprogram
-./myserver
+./dataserver
