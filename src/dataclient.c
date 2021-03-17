@@ -4,26 +4,27 @@
 #include <sys/socket.h> 
 #include <unistd.h> 
 #include<time.h>
-int size = 400000; 
   
 // Driver code 
 int main(int argc, char* argv[]) 
 {   // Three arguments to be passed : 
     // 1. ip address of the server(varaiable st)
-    // 2. Size of array to be passed to the server(varaiable n)
-    // 3. Number of times the array of size n is sent to the server(varaiable t) 
-    int sock,i,n,t; 
+    // 2. Size of array to be passed to the server(varaiable sizearr)
+    // 3. Number of times the array of size n is sent to the server(varaiable ntimes) 
+    int sock,i,sizearr,ntimes; 
     struct sockaddr_in server; 
-    double a[size],tt,tot=0;
-    double bt=0;
+    double datasize=0;
     clock_t ti;
     char* st = argv[1];
-    n=atoi(argv[2]);
-    t= atoi(argv[3]); 
-    for(i=0;i<n;i++){
-      a[i] = i; }
+    sizearr=atoi(argv[2]);
+    ntimes= atoi(argv[3]); 
+    double a[size],tt,tot=0;
+    
+    for(i=0;i<n;i++) {
+      a[i] = i; 
+    }
       
-      bt=(8*n)*t;
+      datasize=(8*n)*ntimes;
    
     // Create socket 
     sock = socket(AF_INET, SOCK_STREAM, 0); 
@@ -45,15 +46,14 @@ int main(int argc, char* argv[])
   //  puts("Connected\n"); 
     ti=clock();
     
-    while(t>0)
-    { 
+    while(ntimes>0) { 
      
-    if (send(sock, &a, 8*n, 0) < 0) { 
+      if (send(sock, a, 8*sizearr, 0) < 0) { 
         puts("Send failed"); 
         return 1; 
-    } 
+      } 
  
-    t--;
+     ntimes--;
    }
    
    ti=clock()-ti;
@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
    // close the socket 
     close(sock); 
    printf("Total time took %f seconds to execute \n", tt); 
-   printf("Total number of Mbits sent %f \n", (bt/125000));
+   printf("Total number of Mbits sent %f \n", (datasize/125000));
      
    return 0; 
   }  
